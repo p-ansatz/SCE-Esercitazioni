@@ -15,11 +15,13 @@ Esercitazioni del corso di **S**istemi di **C**ontrollo **E**mbedded.
     * [Motori DC + ruote](https://amzn.to/3bMl9Xr)
     * [Motore DC + encoder](https://amzn.to/3bO7Bug)
     * [Motore DC + encoder](https://www.pololu.com/product/4750)
+    * [Motori DC + ruote + encoder](https://amzn.to/2WMsBxv)
     * [Driver Motore DC L9110](https://amzn.to/2ZfGqpF)
     * [Driver Motore DC L298N](https://amzn.to/3gaJQ3l)
+    * [X-NUCLEO-IHM04A1 o simili](https://www.st.com/en/ecosystems/x-nucleo-ihm04a1.html)
 * [Servomotore](https://amzn.to/3cGYQDI)
     * [Servomotore 20Kg/cm](https://amzn.to/2TlYNWd)
-    * [Coppia Servomotori 11Kg/cm](https://amzn.to/2LF6PFl)
+    * [Servomotori 11Kg/cm](https://amzn.to/2LF6PFl)
     * [Mini servomotore](https://amzn.to/36huzsY)
 
 ### Documentazione
@@ -35,7 +37,7 @@ Esercitazioni del corso di **S**istemi di **C**ontrollo **E**mbedded.
 * [**DC Motors, Speed Controls, Servo Systems** | Sam Stuart](https://www.elsevier.com/books/dc-motors-speed-controls-servo-systems/stuart/978-0-08-021714-7)
 * [**Embedded Control System Design: A Model Based Approach** | Alexandru Forrai](https://www.amazon.it/Embedded-Control-System-Design-Approach/dp/3642285945)
 
-### Header pinout
+### NucleoF446RE Header pinout
 * [CN5 Header Pinout](HeadersPinout.md#CN5-Header-Pinout)
 * [CN6 Header Pinout](HeadersPinout.md#CN6-Header-Pinout)
 * [CN7 Header Pinout](HeadersPinout.md#CN7-Header-Pinout)
