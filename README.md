@@ -35,6 +35,7 @@ Esercitazioni del corso di **S**istemi di **C**ontrollo **E**mbedded.
 ### Libri
 * [**The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors** | Joseph Yiu](https://www.amazon.it/Definitive-Guide-Cortex®-M3-Cortex®-M4-Processors/dp/0124080820)
 * [**DC Motors, Speed Controls, Servo Systems** | Sam Stuart](https://www.elsevier.com/books/dc-motors-speed-controls-servo-systems/stuart/978-0-08-021714-7)
+* [**Microcontroller Based Applied Digital Control** | Dogan Ibrahim](https://www.amazon.it/Microcontroller-Based-Applied-Digital-Control/dp/0470863358)
 * [**Embedded Control System Design: A Model Based Approach** | Alexandru Forrai](https://www.amazon.it/Embedded-Control-System-Design-Approach/dp/3642285945)
 
 ### NucleoF446RE Header pinout
@@ -50,3 +51,9 @@ Esercitazioni del corso di **S**istemi di **C**ontrollo **E**mbedded.
         * [Controllo di un Motore DC](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione1-MotoriDC#controllo-di-un-motore-a-spazzole)
     * [ServoMotori](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione1-MotoriDC#servomotori)
         * [Controllo di un ServoMotore](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione1-MotoriDC#controllo-di-un-servomotore)
+* [Sensori per sistemi di controllo Embedded](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione2-Sensori#sensori-per-sistemi-di-controllo-embedded)
+    * [Rotary Encoder](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione2-Sensori#rotary-encoder)
+    * [Sensore di Prossimità ad Ultrasuoni](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione2-Sensori#sensore-di-prossimit%C3%A0-ad-ultrasuoni)
+    * [Sensore di Temperatura](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione2-Sensori#sensore-di-temperatura)
+    * [Piattaforma Inerziale (IMU)](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione2-Sensori#piattaforma-inerziale-imu)
+    * [Sensore di Movimento a Infrarossi](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione2-Sensori#sensore-di-movimento-a-infrarossi)
