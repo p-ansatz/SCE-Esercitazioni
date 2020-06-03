@@ -144,9 +144,8 @@ while(1) {
   if(Tc_flag == 1) {
     r = get_reference();    // Reference Value
     y = get_measurement();  // Measurement value
-    e = r - y;              // Error Value
 
-    u = PID_calculate(e, &PID_struct); // Calculate input
+    u = PID_calculate(r, y, &PID_struct); // Calculate input
 
     set_input(u);           // Set input to actuator
 
@@ -159,5 +158,3 @@ La funzione `PID_calculate`, che si trova nella libreria per il controllore **PI
 <p align="center">
   <img src="img/sequence.png" width="50%">
 </p>
-</br></br></br>
-
