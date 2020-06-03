@@ -4,6 +4,27 @@
 ***
 </br>
 
+## Controllo on-off
+Il più *naive* degli schemi di controllo è sicuramente il **controllo on-off**:
+
+<p align="center">
+  <img src="img/tex/onoff1.png">
+</p>
+
+in cui *e* è il valore assunto dall'*errore*, differenza tra il valore dell'uscita misurata del sistema e il riferimento.
+
+Ovviamente il valore di ![u_{min}](https://render.githubusercontent.com/render/math?math=u_%7Bmin%7D) può essere anche pari a 0, e dunque il valore dell'ingresso di controllo varia tra un valore massimo e un valore 0 (effettivamente un valore di *off*). 
+
+Si tratta di un controllo decisamente semplificato che non ha parametri da determinare, se non i valori limite che può assumere l'ingresso di controllo. La sua variazione può avvenire principalmente in accordo a tra logiche differenti, illustrate di seguito. Grazie all'utilizzo di una di queste è possibile anche definire cosa effettivamente deve succedere nel momento in cui il valore dell'errore è pari a 0.
+
+<p align="center">
+  <img src="img/on_off.png">
+</p>
+
+Nella figura A la caratteristica ideale, nella figura B una rappresentazione dello schema on-off con l'introduzione di una *banda morta* e nella figura C la rappresentazione dello schema di controllo on-off con *isteresi*.
+
+</br>
+
 ## Regolatore Proporzionale-Integrale-Derivativo (PID)
 Nella pratica industriale e generalmente del controllo automatico, molto spesso si utilizzano dei regolatori "standard" grazie ai quali è possibile ottenere le prestazioni desiderate tramite la taratura (*tuning*) di pochi parametri. Sicuramente il **PID** appartiene a questa famiglia di controllori: di fatto è il controllore più utilizzato nell'ambito industriale.
 
@@ -158,3 +179,40 @@ La funzione `PID_calculate`, che si trova nella libreria per il controllore **PI
 <p align="center">
   <img src="img/sequence.png" width="50%">
 </p>
+
+### Cenni alle principali Tecniche di Taratura 
+La taratura di un **PID** è il processo cruciale grazie al quale questo regolatore può essere utilizzato in maniera efficace. Delineare delle regole ben precise e valide in maniera assoluta non è praticabile. Molto spesso infatti la taratura di questi regolatori viene effettuata per via empirica, a seguito di una prima regolazione che si avvale di una serie di tecniche basate, eventualmente, anche sul modello del sistema da controllare. 
+
+Il primo metodo di taratura, ad oggi anche utilizzato, è stato sviluppato negli anni '40 e prende il nome di "metodo di Ziegler–Nichols". Si tratta di un metodo euristico molto semplice che non richiede necessariamente la conoscenza del modello del sistema e si basa sulla ricerca di un particolare valore detto "guadagno critico", dal quale si possono derivare gli altri parametri del **PID** in base a delle relazioni note. Il metodo si realizza secondo due possibili strade, una prima detta *ad anello chiuso* in quanto si mette in retroazione il sistema con un **PID** che contiene solo la componente proporzionale e questa si fa aumentare portando l'intero sistema al limite della stabilità, in una condizione di oscillazione permanente.
+
+<p align="center">
+  <img src="img/tuning01.png" width="60%">
+</p>
+
+A questo punto si determinano il periodo delle oscillazioni ed il guadagno per cui queste oscillazioni si verificano e si fa riferimento ad una nota tabella per ricavare i valori di *Kp*, *Td* e *Ti*.
+
+|  | *Kp* | *Ti* | *Td* |
+|:-:|:-:|:-:|:-:|
+|**P**| 0.5 *Kcr* | - | - |
+|**PI**|0.45 *Kcr* | *Tcr*/1.2 | - |
+|**PD**| 0.8 *Kcr* | - | *Tcr*/8 |
+|**PID**| 0.6 *Kcr* | *Tcr*/2 | *Tcr*/8 |
+
+
+Come si può immaginare, il metodo non è sempre praticabile dal punto di vista fisico, più probabilmente da un punto di vista simulativo, il che richiede però la conoscenza del modello matematico del sistema da simulare. 
+
+Questo metodo, ed altri simili, che riescono comunque a garantire la stabilità del sistema, non sempre permettono di ottenere risultati soddisfacenti ed è necessario fare ricorso a metodi di taratura più avanzati, spesso basati sul modello matematico del sistema da controllare. In questi casi, poiché la modellazione matematica non rispecchia mai realmente il sistema fisico, è bene eseguire una seconda fase di taratura empirica dei valori.
+
+Nei casi in cui sia noto il modello del sistema è possibile effettuare una prima fase di taratura utilizzando *Matlab* ed in particolare lo strumento [PID Tuner](https://it.mathworks.com/help/slcontrol/ug/designing-controllers-with-the-pid-tuner.html), grazie al quale è possibile tarare visivamente il **PID** ed estrarre i parametri delle sue tre componenti.
+
+Per la fase di taratura empirica è bene comunque fare ricorso alle principali relazioni che legano i parametri del **PID** agli effetti sul sistema controllato, accennate precedentemente in tabella. Tipicamente si progetta il controllore in accordo ai seguenti passaggi:
+* Determinazione della risposta del sistema ad anello aperto (se possibile) per avere di un'idea di quali devono essere le modifiche da apportare con il controllo;
+* Inserimento di un effetto proporzionale per diminuire il tempo di salita, aumentando la prontezza del sistema, ma tenendo in considerazione il fatto è che aumentandolo troppo si avrebbe un sistema meno stabile;
+* Inserimento di un effetto integrale per eliminare gli errori a regime;
+* Inserimento di un effetto derivativo per diminuire la sovraelongazione ed il tempo di assestamento, migliorando la stabilità ed offrendo la possibilità di un aumento dell'effetto proporzionale;
+* Misurazione ripetuta della risposta del sistema controllato e *tuning* definitivo dei tre parametri caratteristici delle tre componenti, fino ad ottenere la risposta desiderata.
+
+Infine, è importante tenere in considerazione che non è sempre necessario implementare un **PID** completo, con tutte e tre le componenti: a volte potrebbe bastare un **PD** (se il sistema da controllare presenta già degli effetti integrali internamente) o un **PI**, che generalmente è sufficiente per risolvere moltissimi problemi di controllo.
+
+
+***
