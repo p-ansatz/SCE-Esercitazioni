@@ -57,3 +57,6 @@ Esercitazioni del corso di **S**istemi di **C**ontrollo **E**mbedded.
     * [Sensore di Temperatura](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione2-Sensori#sensore-di-temperatura)
     * [Piattaforma Inerziale (IMU)](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione2-Sensori#piattaforma-inerziale-imu)
     * [Sensore di Movimento a Infrarossi](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione2-Sensori#sensore-di-movimento-a-infrarossi)
+* [Tecniche di Controllo per Sistemi Embedded](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione3-ControlloSistemiEmbedded#tecniche-di-controllo-per-sistemi-embedded)
+    * [Controllo on-off](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione3-ControlloSistemiEmbedded#controllo-on-off)
+    * [Regolatore Proporzionale-Integrale-Derivativo (PID)](https://github.com/p-ansatz/SCE-Esercitazioni/tree/master/Esercitazione3-ControlloSistemiEmbedded#regolatore-proporzionale-integrale-derivativo-pid)
