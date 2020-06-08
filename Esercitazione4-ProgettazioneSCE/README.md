@@ -68,7 +68,7 @@ Il telaio può essere realizzato utilizzando diversi materiali: componenti metal
 Per quanto riguarda il motore, vengono presi in considerazione due specifici modelli di motori in corrente continua e i relativi di sistemi di controllo della velocità; nonché il sistema di fissaggio dell'elica al rotore.
 
 <p align="center">
-  <img src="img/prj02.png" width="70%">
+  <img src="img/prj02.png" width="55%">
 </p>
 
 Riguardo i sensori, per la misura di alcune grandezze vengono valutate diverse alternative, che presentano caratteristiche diverse. In particolare si prendono in considerazione i sensori disponibili presso i fornitori locali o di cui si è già in possesso, con i quali comunque è possibile estrarre le informazioni necessarie all'identificazione e al processo di controllo del sistema.
@@ -135,7 +135,7 @@ L'identificazione della costante *k* che lega la tensione di alimentazione del m
 A regime, velocità e accelerazione del pendolo sono nulle, si ha quindi:
 
 <p align="center">
-  <img src="img/model8.png" width="20%">
+  <img src="img/model8.png" width="18%">
 </p>
 
 A partire dalle misure degli angoli, si calcolano i corrispettivi valori del seno e si calcola il valore di *k* a partire da una relazione inversa.
@@ -181,16 +181,16 @@ PID_calculate(ref, measurement, &PID_struct){
 
   err = ref - measurement
 
-  # Calcola termine integrale
+  // Calcola termine integrale
   integral = update_integral(err)
 
-  # Calcolo azione di controllo
+  // Calcolo azione di controllo
   u_input =  (PID_struct->Kp * err) + (PID_struct->Ki * integral)
 
-  # Anti-Windup
+  // Anti-Windup
   u_input = anti_windup(u_input, err)
 
-  # Aggiornamento errore
+  // Aggiornamento errore
   PID_struct->err_old = err
 
   return u_input
@@ -205,10 +205,10 @@ anti_windup(u_input, err){
 
   if (u_input > u_max){
     u_input = u_max
-    update_integral(-err) # Annullamento ultimo accumulo dell'integrale
+    update_integral(-err) // Annullamento ultimo accumulo dell'integrale
   }else if (u_input < -u_max){
     u_input = -u_max
-    update_integral(-err) # Annullamento ultimo accumulo dell'integrale
+    update_integral(-err) // Annullamento ultimo accumulo dell'integrale
   }
 
 }
